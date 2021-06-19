@@ -1,0 +1,13 @@
+.question {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  .questionInput {
+    flex: 1;
+  }
+
+  .speakerImage {
+    display: block;
+  }
+}

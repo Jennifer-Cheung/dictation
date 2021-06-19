@@ -1,0 +1,40 @@
+@import './variables';
+
+.bodyContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+
+  .questionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .submitRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    > p {
+      margin: 0;
+
+      &.pass {
+        color: $primary;
+      }
+
+      &.fail {
+        color: $danger;
+      }
+    }
+  }
+
+  .wrapper {
+    padding: 21px 16px;
+  }
+}
+
+p {
+  font-size: 24px;
+}

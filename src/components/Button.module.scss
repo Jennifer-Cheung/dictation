@@ -1,0 +1,53 @@
+@import "../variables";
+
+.button {
+  border-radius: 5px;
+  border: none;
+  padding: 15px 20px;
+  color: $white;
+  outline: none;
+  font-size: 24px;
+  font-family: $font-family;
+  transition: 0.1s all ease;
+
+  &.small {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
+  &.primary {
+    background-color: $primary;
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: lighten($primary, 5);
+      }
+
+      &:active {
+        background-color: darken($primary, 5);
+      }
+    }
+
+    &:disabled {
+      background-color: lighten(desaturate($primary, 70), 25);
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary;
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: lighten($secondary, 5);
+      }
+
+      &:active {
+        background-color: darken($secondary, 5);
+      }
+    }
+
+    &:disabled {
+      background-color: lighten(desaturate($secondary, 70), 25);
+    }
+  }
+}

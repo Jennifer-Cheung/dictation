@@ -1,0 +1,24 @@
+@import '../variables';
+
+.input {
+  border-radius: 5px;
+  border: 1px solid $slate;
+  background-color: $white;
+  padding: 15px 20px;
+  color: $slate;
+  font-size: 24px;
+
+  &::placeholder {
+    color: transparentize($slate, 0.6);
+  }
+
+  &.success {
+    border-color: $primary;
+    background-color: $primary-light;
+  }
+
+  &.error {
+    border-color: $danger;
+    background-color: $danger-light;
+  }
+}

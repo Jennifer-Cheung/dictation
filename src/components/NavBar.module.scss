@@ -1,0 +1,22 @@
+@import '../variables';
+
+.navBar {
+  height: 60px;
+  width: 100%;
+  background-color: $slate;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+
+  .navBarContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    flex: 1;
+  }
+
+  .logo {
+
+  }
+}

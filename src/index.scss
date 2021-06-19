@@ -1,0 +1,28 @@
+/*noinspection CssUnknownTarget*/
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 24px;
+  color: $slate;
+  background-color: $neutral;
+  min-height: 100vh;
+}
+
+h1 {
+  font-weight: lighter;
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
