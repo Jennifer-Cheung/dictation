@@ -18,6 +18,9 @@ const App = () => {
 
   const [userValues, setUserValues] = useState([])
   const onFileOpen = (inputEvent) => {
+    if (inputEvent.target.files.length === 0) {
+      return
+    }
 
     const file = inputEvent.target.files[0]
     const fileReader = new FileReader()
