@@ -1,10 +1,9 @@
 import styles from './App.module.scss'
-import Button from './components/Button'
 import NavBar from './components/NavBar'
 import React, { useEffect, useState } from 'react'
 import Container from './components/Container'
-import Input from './components/Input'
 import DoDictation from './layouts/DoDictation'
+import CreateDictation from './layouts/CreateDictation'
 
 // Assuming the browser has at least one voice.
 const PRIMARY_VOICE_NAME = 'Google UK English Male'
@@ -15,7 +14,6 @@ const App = () => {
   const [dictation, setDictation] = useState(null)
 
   const [isCreatingFile, setIsCreatingFile] = useState(false)
-  const [title, setTitle] = useState(null)
   const [allowSubmit, setAllowSubmit] = useState(true)
 
   const [userValues, setUserValues] = useState([])
@@ -75,28 +73,15 @@ const App = () => {
       <Container className={styles.questionsContainer}>
         {dictation !== null
           ? (
-            <DoDictation dictation={dictation} voice={voice} userValues={userValues} setUserValues={setUserValues} allowSubmit={allowSubmit} setAllowSubmit={setAllowSubmit}/>
+            <DoDictation dictation={dictation} voice={voice} userValues={userValues} setUserValues={setUserValues}
+                         allowSubmit={allowSubmit} setAllowSubmit={setAllowSubmit}/>
           )
-          : (isCreatingFile === true ?
-              <div className={styles.questionsContainer}>
-                <div className={styles.wrapper}>
-                  <p>Title</p>
-                  <Input/>
-                </div>
-
-                <div className={styles.wrapper}>
-                  <p>Words</p>
-                </div>
-
-                <div className={styles.wrapper}>
-                  <Button isPrimary={true}>Download file</Button>
-                </div>
-
-              </div> :
-              <p>Open a dictation file to start the quiz.</p>
+          : (isCreatingFile === true
+              ? <CreateDictation/>
+              : <p>Open a dictation file to start the quiz.</p>
           )}
       </Container>
-      <a href='/logo192.png' download='hi.png'>Download image</a>
+      <a href="/logo192.png" download="hi.png">Download image</a>
     </div>
   )
 }
