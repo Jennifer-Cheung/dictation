@@ -29,7 +29,10 @@ const FileInput = (
     <input
       type="file"
       accept="application/json,.dictation"
-      onChange={onChange}
+      onChange={(e) => {
+        onChange(e)
+        e.target.value = null
+      }}
       id={id}
       className={fileInputStyles.hiddenInput}
       onClick={onClick}
