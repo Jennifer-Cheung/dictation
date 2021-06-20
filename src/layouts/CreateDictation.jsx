@@ -4,6 +4,7 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import WordInput from '../components/WordInput'
 import styles from './CreateDictation.module.scss'
+import { downloadAsFile } from '../utils/downloadAsFile'
 
 const CreateDictation = () => {
   const [words, setWords] = React.useState([''])
@@ -16,15 +17,26 @@ const CreateDictation = () => {
   }
 
   const plusBtnOnClick = (i) => {
-    let newArray = [...words]
+    const newArray = [...words]
     newArray.splice(i + 1, 0, '')
     setWords(newArray)
   }
 
   const minusBtnOnClick = (i) => {
-    let newArray = [...words]
-    newArray.splice(i, 1)
-    setWords(newArray)
+    if (words.length !== 1) {
+      const newArray = [...words]
+      newArray.splice(i, 1)
+      setWords(newArray)
+    }
+  }
+
+  const download = () => {
+    const dictation = {
+      title,
+      words
+    }
+    const output = JSON.stringify(dictation)
+    downloadAsFile(output, title + '.dictation')
   }
 
   return (
@@ -54,7 +66,7 @@ const CreateDictation = () => {
       </div>
 
       <div className={appStyles.submitRow}>
-        <Button isPrimary={true}>Download file</Button>
+        <Button isPrimary={true} onClick={download}>Download file</Button>
       </div>
     </div>
   )

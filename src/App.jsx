@@ -81,7 +81,6 @@ const App = () => {
               : <p>Open a dictation file to start the quiz.</p>
           )}
       </Container>
-      <a href="/logo192.png" download="hi.png">Download image</a>
     </div>
   )
 }

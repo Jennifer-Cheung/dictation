@@ -27,8 +27,8 @@ const FileInput = (
       Open File...
     </label>
     <input
-      type='file'
-      accept='application/json'
+      type="file"
+      accept="application/json,.dictation"
       onChange={onChange}
       id={id}
       className={fileInputStyles.hiddenInput}
