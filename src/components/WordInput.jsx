@@ -3,13 +3,13 @@ import Input from './Input'
 import Button from './Button'
 import styles from './WordInput.module.scss'
 
-const WordInput = ({i}) => {
-  return(
+const WordInput = ({ i, value, onChange, plusBtnOnClick, minusBtnOnClick }) => {
+  return (
     <div className={styles.wordInputBar}>
-      <p>{i+1}.</p>
-      <Input/>
-      <Button>+</Button>
-      <Button>−</Button>
+      <p>{i + 1}.</p>
+      <Input onChange={(e) => onChange(e.target.value, i)} value={value}/>
+      <Button onClick={() => plusBtnOnClick(i)}>+</Button>
+      <Button onClick={() => minusBtnOnClick(i)}>−</Button>
     </div>
   )
 }

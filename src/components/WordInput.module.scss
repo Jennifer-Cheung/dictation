@@ -6,9 +6,11 @@
 
   p {
     margin: 0;
+    padding: 0;
   }
 
   Input {
     flex: 1;
+    min-width: 0;
   }
 }
