@@ -1,5 +1,12 @@
 @import "../variables";
 
+.wrapper {
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
 .timer {
   background-color: $slate;
   color: $white;
@@ -9,8 +16,7 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 10px;
-  position: fixed;
-  top: 100%;
-  left: 50%;
-  transform: translate(-50%, -100%);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+  gap: 20px;
+  font-weight: lighter;
 }

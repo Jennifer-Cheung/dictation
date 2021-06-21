@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Question from '../components/Question'
 import styles from '../App.module.scss'
 import Button from '../components/Button'
@@ -6,6 +6,8 @@ import Timer from '../components/Timer'
 
 const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit, setAllowSubmit }) => {
   const [score, setScore] = useState(null)
+  const [remainingTime, setRemainingTime] = useState(null)
+  const timeoutIdRef = useRef(null)
 
   const totalWordsCount = dictation?.words.length
 
@@ -20,6 +22,27 @@ const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit,
     setAllowSubmit(false)
   }
 
+  useEffect(() => {
+    const timeoutId = timeoutIdRef.current
+    if (typeof timeoutId === 'number') {
+      clearTimeout(timeoutId)
+    }
+    setRemainingTime(20)
+    console.log('dictation changed')
+  }, [dictation])
+
+  /*
+   * if remaining time is larger than 0, the remaining time is decreased by 1 every 1000 ms. When the remaining time
+   * changes, setTimeOut is called again.
+   */
+  useEffect(() => {
+    console.log(remainingTime)
+    if (remainingTime === 0 || remainingTime === null) {
+      return
+    }
+    console.log(remainingTime + 'will count down')
+    timeoutIdRef.current = setTimeout(() => { setRemainingTime(remainingTime - 1) }, 1000)
+  }, [remainingTime])
 
   return (
     <>
@@ -52,7 +75,7 @@ const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit,
         }
       </div>
 
-      <Timer/>
+      <Timer remainingTime={remainingTime}/>
     </>
   )
 }

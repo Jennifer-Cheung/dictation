@@ -17,6 +17,7 @@ const App = () => {
   const [allowSubmit, setAllowSubmit] = useState(true)
 
   const [userValues, setUserValues] = useState([])
+
   const onFileOpen = (inputEvent) => {
     if (inputEvent.target.files.length === 0) {
       return
@@ -68,6 +69,7 @@ const App = () => {
       window.speechSynthesis.onvoiceschanged = selectVoice
     }
   }, [])
+
 
   return (
     <div className={styles.bodyContainer}>
