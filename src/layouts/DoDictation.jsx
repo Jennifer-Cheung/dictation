@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Question from '../components/Question'
 import styles from '../App.module.scss'
 import Button from '../components/Button'
+import Timer from '../components/Timer'
 
 const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit, setAllowSubmit }) => {
   const [score, setScore] = useState(null)
@@ -50,6 +51,8 @@ const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit,
             : null
         }
       </div>
+
+      <Timer/>
     </>
   )
 }

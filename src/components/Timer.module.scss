@@ -1,0 +1,16 @@
+@import "../variables";
+
+.timer {
+  background-color: $slate;
+  color: $white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 10px;
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
