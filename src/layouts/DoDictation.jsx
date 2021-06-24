@@ -26,7 +26,7 @@ const DoDictation = ({ dictation, voice, userValues, setUserValues, score, setSc
     if (typeof timeoutId === 'number') {
       clearTimeout(timeoutId)
     }
-    setRemainingTime(20)
+    setRemainingTime(dictation.words.length * 5)
     console.log('dictation changed')
   }, [dictation])
 
