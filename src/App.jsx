@@ -14,9 +14,10 @@ const App = () => {
   const [dictation, setDictation] = useState(null)
 
   const [isCreatingFile, setIsCreatingFile] = useState(false)
-  const [allowSubmit, setAllowSubmit] = useState(true)
+  const [score, setScore] = useState(null)
 
   const [userValues, setUserValues] = useState([])
+
   const onFileOpen = (inputEvent) => {
     if (inputEvent.target.files.length === 0) {
       return
@@ -33,6 +34,8 @@ const App = () => {
     }
 
     fileReader.readAsText(file)
+
+    setScore(null)
   }
 
   const onCreateFileBtnClick = () => {
@@ -42,7 +45,6 @@ const App = () => {
 
   const onOpenFileBtnClick = () => {
     setIsCreatingFile(false)
-    setAllowSubmit(true)
   }
 
   useEffect(() => {
@@ -77,7 +79,7 @@ const App = () => {
         {dictation !== null
           ? (
             <DoDictation dictation={dictation} voice={voice} userValues={userValues} setUserValues={setUserValues}
-                         allowSubmit={allowSubmit} setAllowSubmit={setAllowSubmit}/>
+                         score={score} setScore={setScore}/>
           )
           : (isCreatingFile === true
               ? <CreateDictation/>
