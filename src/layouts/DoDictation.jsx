@@ -1,17 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Question from '../components/Question'
 import styles from '../App.module.scss'
 import Button from '../components/Button'
 import Timer from '../components/Timer'
 
-const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit, setAllowSubmit }) => {
-  const [score, setScore] = useState(null)
+const DoDictation = ({ dictation, voice, userValues, setUserValues, score, setScore }) => {
   const [remainingTime, setRemainingTime] = useState(null)
   const timeoutIdRef = useRef(null)
 
   const totalWordsCount = dictation?.words.length
 
-  const submitOnClick = () => {
+  const submitOnClick = useCallback(() => {
     let totalScore = 0
     userValues.forEach((value, i) => {
       if (value === dictation.words[i]) {
@@ -19,8 +18,8 @@ const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit,
       }
     })
     setScore(totalScore)
-    setAllowSubmit(false)
-  }
+    clearTimeout(timeoutIdRef.current)
+  }, [dictation, userValues, setScore])
 
   useEffect(() => {
     const timeoutId = timeoutIdRef.current
@@ -44,6 +43,13 @@ const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit,
     timeoutIdRef.current = setTimeout(() => { setRemainingTime(remainingTime - 1) }, 1000)
   }, [remainingTime])
 
+  // Specifically for when the time is out to end the test
+  useEffect(() => {
+    if (remainingTime === 0) {
+      submitOnClick()
+    }
+  }, [remainingTime, submitOnClick])
+
   return (
     <>
       <h1>{dictation.title}</h1>
@@ -63,9 +69,9 @@ const DoDictation = ({ dictation, voice, userValues, setUserValues, allowSubmit,
         />
       ))}
       <div className={styles.submitRow}>
-        <Button isPrimary onClick={submitOnClick} disabled={allowSubmit === false}>Submit</Button>
+        <Button isPrimary onClick={submitOnClick} disabled={score !== null}>Submit</Button>
         {
-          score !== null && allowSubmit === false
+          score !== null
             ? (
               <p className={score / totalWordsCount >= 0.5 ? styles.pass : styles.fail}>
                 {score}/{totalWordsCount} ({Math.round(10 * score / totalWordsCount * 100) / 10}%)
