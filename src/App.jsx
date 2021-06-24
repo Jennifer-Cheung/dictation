@@ -71,7 +71,6 @@ const App = () => {
     }
   }, [])
 
-
   return (
     <div className={styles.bodyContainer}>
       <NavBar onFileOpen={onFileOpen} onCreateFileBtnClick={onCreateFileBtnClick} onClick={onOpenFileBtnClick}/>
