@@ -109,7 +109,7 @@ const CreateDictation = () => {
       </div>
 
       <div className={appStyles.submitRow}>
-        <Button isPrimary={true} onClick={download}>Download file</Button>
+        <Button colour={'primary'} onClick={download}>Download file</Button>
       </div>
     </div>
   )

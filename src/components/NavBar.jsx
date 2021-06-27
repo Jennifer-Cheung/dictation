@@ -9,7 +9,7 @@ const NavBar = ({onFileOpen, onCreateFileBtnClick, onClick}) => (
     <Container className={styles.navBarContainer}>
       <div className={styles.logo}>Dictation</div>
       <FileInput onChange={onFileOpen} isSmall isPrimary id={'fileInput'} onClick={onClick}/>
-      <Button isPrimary={true} onClick={onCreateFileBtnClick} isSmall={true}>Create a JSON File</Button>
+      <Button colour={'primary'} onClick={onCreateFileBtnClick} isSmall={true}>Create a JSON File</Button>
     </Container>
   </div>
 )

@@ -79,7 +79,7 @@ const App = () => {
         {dictation !== null
           ? (
             <DoDictation dictation={dictation} voice={voice} userValues={userValues} setUserValues={setUserValues}
-                         score={score} setScore={setScore}/>
+                         score={score} setScore={setScore} setDictation={setDictation}/>
           )
           : (isCreatingFile === true
               ? <CreateDictation/>
