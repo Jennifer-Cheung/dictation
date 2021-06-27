@@ -1,15 +1,7 @@
 import React from 'react'
 import styles from './Input.module.scss'
 
-const Input = ({
-  placeholder = null,
-  value,
-  onChange,
-  error = false,
-  success = false,
-  className = null,
-  onClick
-}) =>
+const Input = ({ placeholder = null, value, onChange, error = false, success = false, className = null, onClick }) =>
   (
     <input
       placeholder={placeholder}

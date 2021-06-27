@@ -7,7 +7,6 @@
   padding: 15px 20px;
   color: $slate;
   font-size: 24px;
-  min-width: 0;
 
   &::placeholder {
     color: transparentize($slate, 0.6);
