@@ -3,7 +3,7 @@ import styles from './Button.module.scss'
 
 const Button = (
   {
-    isPrimary = false,
+    colour,
     isSmall = false,
     onClick,
     children,
@@ -15,7 +15,7 @@ const Button = (
       [
         styles.button,
         isSmall === true ? styles.small : null,
-        isPrimary === true ? styles.primary : styles.secondary
+        colour === 'primary' ? styles.primary : colour === 'secondary' ? styles.secondary : styles.grey
       ]
         .filter(name => name !== null)
         .join(' ')

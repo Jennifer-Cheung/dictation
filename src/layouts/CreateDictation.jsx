@@ -5,10 +5,13 @@ import Button from '../components/Button'
 import WordInput from '../components/WordInput'
 import styles from './CreateDictation.module.scss'
 import { downloadAsFile } from '../utils/downloadAsFile'
+import RadioRow from '../components/RadioRow'
 
 const CreateDictation = () => {
   const [words, setWords] = React.useState([''])
   const [title, setTitle] = React.useState(null)
+  const [radioValue, setRadioValue] = React.useState(null)
+  const [time, setTime] = React.useState(null)
 
   const onChange = (value, i) => {
     const newArray = [...words]
@@ -33,10 +36,23 @@ const CreateDictation = () => {
   const download = () => {
     const dictation = {
       title,
-      words
+      words,
+      time
     }
     const output = JSON.stringify(dictation)
     downloadAsFile(output, title + '.dictation')
+  }
+
+  const radioBtnOnClick = (value) => {
+    setRadioValue(value)
+
+    if (value === 'default') {
+      setTime(null)
+    }
+  }
+
+  const timeInputOnChange = (value) => {
+    setTime(value)
   }
 
   return (
@@ -65,8 +81,35 @@ const CreateDictation = () => {
         </div>
       </div>
 
+      <div>
+        <h3>Time limit</h3>
+        <div className={styles.radioRowWrapper}>
+          <RadioRow
+            i={0}
+            label={'Use default time'}
+            onClick={radioBtnOnClick}
+            value={'default'}
+            isChecked={radioValue === 'default'}
+          />
+        </div>
+        <div className={styles.radioRowWrapper}>
+          <RadioRow
+            i={1}
+            label={'Set your own time(seconds):'}
+            value={'setYourOwn'}
+            onClick={radioBtnOnClick}
+            isChecked={radioValue === 'setYourOwn'}
+          />
+          <Input
+            value={time}
+            onChange={(e) => {timeInputOnChange(e.target.value)}}
+            onClick={() => radioBtnOnClick('setYourOwn')}
+          />
+        </div>
+      </div>
+
       <div className={appStyles.submitRow}>
-        <Button isPrimary={true} onClick={download}>Download file</Button>
+        <Button colour={'primary'} onClick={download}>Download file</Button>
       </div>
     </div>
   )

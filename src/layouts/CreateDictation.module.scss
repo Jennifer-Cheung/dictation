@@ -12,3 +12,17 @@
     flex-direction: column;
   }
 }
+
+.radioRowWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  white-space: nowrap;
+}
