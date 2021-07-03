@@ -4,6 +4,9 @@ import containerStyles from './Container.module.scss'
 
 const Timer = ({ remainingTime }) => {
   const remainingMin = Math.floor(remainingTime / 60)
+  if (remainingTime > 60) {
+    remainingTime = remainingTime - remainingMin * 60
+  }
 
   return (
     <div className={containerStyles.container + ' ' + styles.wrapper}>
