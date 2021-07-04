@@ -64,4 +64,18 @@
       }
     }
   }
+
+  &.danger {
+    background-color: $danger;
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: lighten($danger, 5);
+      }
+
+      &:active {
+        background-color: darken($danger, 5);
+      }
+    }
+  }
 }

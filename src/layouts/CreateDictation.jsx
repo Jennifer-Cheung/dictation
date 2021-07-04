@@ -55,8 +55,53 @@ const CreateDictation = () => {
     setTime(value)
   }
 
+  const loadDictation = () => {
+    const input = document.createElement('input')
+    input.setAttribute('type', 'file')
+    input.setAttribute('accept', 'application/json,.dictation')
+    input.addEventListener('change', (e) => {
+      if (e.target.files.length === 0) {
+        return
+      }
+
+      const file = e.target.files[0]
+      const fileReader = new FileReader()
+      fileReader.onload = () => {
+        clearDictation()
+        /** @type {string} */
+        const text = fileReader.result
+        const dictation = JSON.parse(text)
+        setTitle(dictation.title)
+        setWords(dictation.words)
+        if (dictation.time === null) {
+          setRadioValue('default')
+        } else {
+          setRadioValue('setYourOwn')
+          setTime(dictation.time)
+        }
+      }
+      fileReader.readAsText(file)
+    })
+    input.style.display = 'none'
+    document.body.appendChild(input)
+    input.click()
+    document.body.removeChild(input)
+  }
+
+  const clearDictation = () => {
+    setTime('')
+    setRadioValue('default')
+    setTitle('')
+    setWords([''])
+  }
+
   return (
     <div className={styles.wrapper}>
+      <div className={appStyles.submitRow}>
+        <Button colour={'primary'} onClick={loadDictation}>Load Dictation...</Button>
+        <Button colour={'danger'} onClick={clearDictation}>Clear Dictation</Button>
+      </div>
+
       <div>
         <h3>Title</h3>
         <Input onChange={(e) => {setTitle(e.target.value)}} value={title}/>
