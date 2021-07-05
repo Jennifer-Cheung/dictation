@@ -8,8 +8,8 @@ const WordInput = ({ i, value, onChange, plusBtnOnClick, minusBtnOnClick }) => {
     <div className={styles.wordInputBar}>
       <p>{i + 1}.</p>
       <Input onChange={(e) => onChange(e.target.value, i)} value={value}/>
-      <Button onClick={() => plusBtnOnClick(i)} colour={'secondary'}>+</Button>
-      <Button onClick={() => minusBtnOnClick(i)} colour={'secondary'}>−</Button>
+      <Button onClick={() => plusBtnOnClick(i)} color={'secondary'}>+</Button>
+      <Button onClick={() => minusBtnOnClick(i)} color={'secondary'}>−</Button>
     </div>
   )
 }

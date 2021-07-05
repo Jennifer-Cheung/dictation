@@ -165,7 +165,7 @@ const DoDictation = ({ time }) => {
             />
           ))}
           <div className={styles.submitRow}>
-            <Button colour={'primary'} onClick={submitOnClick} disabled={score !== null}>Submit</Button>
+            <Button color={'primary'} onClick={submitOnClick} disabled={score !== null}>Submit</Button>
             {
               score !== null
                 ? (

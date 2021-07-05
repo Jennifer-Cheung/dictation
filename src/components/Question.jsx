@@ -17,7 +17,7 @@ const Question = ({ isCorrect, placeholder, word, onChange, value, voice }) => {
 
   return (
     <div className={styles.question}>
-      <Button onClick={onButtonClick} colour={'secondary'}>
+      <Button onClick={onButtonClick} color={'secondary'}>
         <img src={speakerIconUrl} alt="Play Audio" className={styles.speakerImage}/>
       </Button>
       <Input

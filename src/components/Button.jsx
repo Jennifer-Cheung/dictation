@@ -3,21 +3,21 @@ import styles from './Button.module.scss'
 
 const Button = (
   {
-    colour,
+    color,
     isSmall = false,
     onClick,
     children,
     disabled
   }
 ) => {
-  const colourStyle = () => {
-    switch (colour) {
+  const colorStyle = () => {
+    switch (color) {
       case 'primary':
         return styles.primary
       case 'secondary':
         return styles.secondary
-      case 'grey':
-        return styles.grey
+      case 'gray':
+        return styles.gray
       case 'danger':
         return styles.danger
       default:
@@ -31,7 +31,7 @@ const Button = (
         [
           styles.button,
           isSmall === true ? styles.small : null,
-          colourStyle()
+          colorStyle()
         ]
           .filter(name => name !== null)
           .join(' ')

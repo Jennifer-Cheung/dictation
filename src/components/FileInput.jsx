@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
-import buttonStyles from './Button.module.scss'
 import fileInputStyles from './FileInput.module.scss'
+import Button from './Button'
 
 const FileInput = (
   {
-    isPrimary = false,
+    color,
     isSmall = false,
     onChange,
     label
@@ -21,20 +21,13 @@ const FileInput = (
 
   return (
     <>
-      <label
-        className={
-          [
-            buttonStyles.button,
-            isSmall === true ? buttonStyles.small : null,
-            isPrimary === true ? buttonStyles.primary : buttonStyles.secondary
-          ]
-            .filter(name => name !== null)
-            .join(' ')
-        }
+      <Button
+        color={color}
+        isSmall={isSmall}
         onClick={labelOnClick}
       >
         {label}
-      </label>
+      </Button>
       <input
         type="file"
         accept="application/json,.dictation"

@@ -7,8 +7,8 @@ const NavBar = ({ onPageChange }) => (
   <div className={styles.navBar}>
     <Container className={styles.navBarContainer}>
       <div className={styles.logo}>Dictation</div>
-      <Button onClick={() => onPageChange('Do Dictation')} isSmall colour={'primary'}>Do Dictation</Button>
-      <Button colour={'primary'} onClick={() => {onPageChange('Make Dictation')}} isSmall>Make Dictation</Button>
+      <Button onClick={() => onPageChange('Do Dictation')} isSmall color={'primary'}>Do Dictation</Button>
+      <Button color={'primary'} onClick={() => {onPageChange('Make Dictation')}} isSmall>Make Dictation</Button>
     </Container>
   </div>
 )

@@ -12,8 +12,8 @@ const AlertBox = ({ title, btnOnClick }) => (
       </div>
 
       <div className={styles.btnRow}>
-        <Button colour="primary" onClick={() => btnOnClick('yes')}>Yes</Button>
-        <Button colour="grey" onClick={() => btnOnClick('cancel')}>Cancel</Button>
+        <Button color="primary" onClick={() => btnOnClick('yes')}>Yes</Button>
+        <Button color="gray" onClick={() => btnOnClick('cancel')}>Cancel</Button>
       </div>
     </div>
   </div>

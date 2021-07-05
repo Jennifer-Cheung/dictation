@@ -90,8 +90,8 @@ const CreateDictation = () => {
   return (
     <div className={styles.wrapper}>
       <div className={appStyles.submitRow}>
-        <FileInput onChange={loadDictation} isPrimary={true} label={'Load Dictation...'}/>
-        <Button colour={'danger'} onClick={clearDictation}>Clear Dictation</Button>
+        <FileInput onChange={loadDictation} color={'primary'} label={'Load Dictation...'}/>
+        <Button color={'danger'} onClick={clearDictation}>Clear Dictation</Button>
       </div>
 
       <div>
@@ -146,7 +146,7 @@ const CreateDictation = () => {
       </div>
 
       <div className={appStyles.submitRow}>
-        <Button colour={'primary'} onClick={download}>Download file</Button>
+        <Button color={'primary'} onClick={download}>Download file</Button>
       </div>
     </div>
   )
