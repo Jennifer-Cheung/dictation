@@ -3,28 +3,45 @@ import styles from './Button.module.scss'
 
 const Button = (
   {
-    colour,
+    color,
     isSmall = false,
     onClick,
     children,
     disabled
   }
-) => (
-  <button
-    className={
-      [
-        styles.button,
-        isSmall === true ? styles.small : null,
-        colour === 'primary' ? styles.primary : colour === 'secondary' ? styles.secondary : styles.grey
-      ]
-        .filter(name => name !== null)
-        .join(' ')
+) => {
+  const colorStyle = () => {
+    switch (color) {
+      case 'primary':
+        return styles.primary
+      case 'secondary':
+        return styles.secondary
+      case 'gray':
+        return styles.gray
+      case 'danger':
+        return styles.danger
+      default:
+        return null
     }
-    onClick={onClick}
-    disabled={disabled}
-  >
-    {children}
-  </button>
-)
+  }
+
+  return (
+    <button
+      className={
+        [
+          styles.button,
+          isSmall === true ? styles.small : null,
+          colorStyle()
+        ]
+          .filter(name => name !== null)
+          .join(' ')
+      }
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  )
+}
 
 export default Button

@@ -6,6 +6,7 @@ import WordInput from '../components/WordInput'
 import styles from './CreateDictation.module.scss'
 import { downloadAsFile } from '../utils/downloadAsFile'
 import RadioRow from '../components/RadioRow'
+import FileInput from '../components/FileInput'
 
 const CreateDictation = () => {
   const [words, setWords] = React.useState([''])
@@ -55,8 +56,44 @@ const CreateDictation = () => {
     setTime(value)
   }
 
+  const loadDictation = (e) => {
+    if (e.target.files.length === 0) {
+      return
+    }
+
+    const file = e.target.files[0]
+    const fileReader = new FileReader()
+    fileReader.onload = () => {
+      clearDictation()
+      /** @type {string} */
+      const text = fileReader.result
+      const dictation = JSON.parse(text)
+      setTitle(dictation.title)
+      setWords(dictation.words)
+      if (dictation.time === null) {
+        setRadioValue('default')
+      } else {
+        setRadioValue('setYourOwn')
+        setTime(dictation.time)
+      }
+    }
+    fileReader.readAsText(file)
+  }
+
+  const clearDictation = () => {
+    setTime('')
+    setRadioValue('default')
+    setTitle('')
+    setWords([''])
+  }
+
   return (
     <div className={styles.wrapper}>
+      <div className={appStyles.submitRow}>
+        <FileInput onChange={loadDictation} color={'primary'} label={'Load Dictation...'}/>
+        <Button color={'danger'} onClick={clearDictation}>Clear Dictation</Button>
+      </div>
+
       <div>
         <h3>Title</h3>
         <Input onChange={(e) => {setTitle(e.target.value)}} value={title}/>
@@ -109,7 +146,7 @@ const CreateDictation = () => {
       </div>
 
       <div className={appStyles.submitRow}>
-        <Button colour={'primary'} onClick={download}>Download file</Button>
+        <Button color={'primary'} onClick={download}>Download file</Button>
       </div>
     </div>
   )

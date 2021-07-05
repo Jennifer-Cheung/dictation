@@ -1,44 +1,46 @@
-import React from 'react'
-import buttonStyles from './Button.module.scss'
+import React, { useRef } from 'react'
 import fileInputStyles from './FileInput.module.scss'
+import Button from './Button'
 
 const FileInput = (
   {
-    isPrimary = false,
+    color,
     isSmall = false,
     onChange,
-    id,
-    onClick
+    label
   }
-) => (
-  <>
-    <label
-      htmlFor={id}
-      className={
-        [
-          buttonStyles.button,
-          isSmall === true ? buttonStyles.small : null,
-          isPrimary === true ? buttonStyles.primary : buttonStyles.secondary
-        ]
-          .filter(name => name !== null)
-          .join(' ')
-      }
-    >
-      Open File...
-    </label>
-    <input
-      type="file"
-      accept="application/json,.dictation"
-      onChange={(e) => {
-        onChange(e)
-        e.target.value = null
-      }}
-      id={id}
-      className={fileInputStyles.hiddenInput}
-      onClick={onClick}
-    />
-  </>
+) => {
+  const inputRef = useRef(null)
 
-)
+  const labelOnClick = () => {
+    const input = inputRef.current
+    if (input !== null) {
+      input.click()
+    }
+  }
+
+  return (
+    <>
+      <Button
+        color={color}
+        isSmall={isSmall}
+        onClick={labelOnClick}
+      >
+        {label}
+      </Button>
+      <input
+        type="file"
+        accept="application/json,.dictation"
+        onChange={(e) => {
+          onChange(e)
+          e.target.value = null
+        }}
+        className={fileInputStyles.hiddenInput}
+        ref={inputRef}
+      />
+    </>
+
+  )
+}
 
 export default FileInput
