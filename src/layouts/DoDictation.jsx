@@ -136,6 +136,10 @@ const DoDictation = ({ time }) => {
     }
   }, [])
 
+  const determineCorrect = (i) => {
+    return dictation.words[i] === userValues[i]
+  }
+
   return (
     //isOpenFile is needed because if not, it will try to read the content of the dictation file, which when
     //isOpeningFile is true, is null.
@@ -152,7 +156,7 @@ const DoDictation = ({ time }) => {
           {dictation.words.map((word, i) => (
             <Question
               key={i}
-              isCorrect={null}
+              isCorrect={score === null ? null : determineCorrect(i)}
               placeholder={'Question ' + (i + 1)}
               voice={voice}
               onChange={(newValue) => {
