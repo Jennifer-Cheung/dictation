@@ -90,8 +90,8 @@ const CreateDictation = () => {
   return (
     <div className={styles.wrapper}>
       <div className={appStyles.submitRow}>
-        <FileInput onChange={loadDictation} color={'primary'} label={'Load Dictation...'}/>
-        <Button color={'danger'} onClick={clearDictation}>Clear Dictation</Button>
+        <FileInput onChange={loadDictation} color="primary" label="Load Dictation..."/>
+        <Button color="danger" onClick={clearDictation}>Clear Dictation</Button>
       </div>
 
       <div>
@@ -123,17 +123,17 @@ const CreateDictation = () => {
         <div className={styles.radioRowWrapper}>
           <RadioRow
             i={0}
-            label={'Use default time'}
+            label="Use default time"
             onClick={radioBtnOnClick}
-            value={'default'}
+            value="default"
             isChecked={radioValue === 'default'}
           />
         </div>
         <div className={styles.radioRowWrapper}>
           <RadioRow
             i={1}
-            label={'Set your own time(seconds):'}
-            value={'setYourOwn'}
+            label="Custom(seconds):"
+            value="setYourOwn"
             onClick={radioBtnOnClick}
             isChecked={radioValue === 'setYourOwn'}
           />
@@ -146,7 +146,7 @@ const CreateDictation = () => {
       </div>
 
       <div className={appStyles.submitRow}>
-        <Button color={'primary'} onClick={download}>Download file</Button>
+        <Button color="primary" onClick={download}>Download file</Button>
       </div>
     </div>
   )
