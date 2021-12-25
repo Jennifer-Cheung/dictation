@@ -29,6 +29,7 @@ const Question = ({ isCorrect, placeholder, word, onChange, value, voice }) => {
         onChange={(e) => {
           onChange(e.target.value)
         }}
+        disabled={isCorrect !== null}
       />
     </div>
   )

@@ -1,7 +1,16 @@
 import React from 'react'
 import styles from './Input.module.scss'
 
-const Input = ({ placeholder = null, value, onChange, error = false, success = false, className = null, onClick }) =>
+const Input = ({
+  placeholder = null,
+  value,
+  onChange,
+  error = false,
+  success = false,
+  className = null,
+  onClick,
+  disabled = false
+}) =>
   (
     <input
       placeholder={placeholder}
@@ -14,6 +23,7 @@ const Input = ({ placeholder = null, value, onChange, error = false, success = f
         className
       ].filter(name => name !== null).join(' ')}
       onClick={onClick}
+      disabled={disabled}
     />
   )
 
