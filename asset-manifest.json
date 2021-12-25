@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/dictation/static/css/main.6ece6af2.css",
-    "main.js": "/dictation/static/js/main.753ba477.js",
+    "main.js": "/dictation/static/js/main.c7880dcf.js",
     "static/js/787.93bb1759.chunk.js": "/dictation/static/js/787.93bb1759.chunk.js",
     "index.html": "/dictation/index.html",
     "static/media/speaker_icon.svg": "/dictation/static/media/speaker_icon.32742772767c1f9c1d0583967c1debd3.svg",
     "main.6ece6af2.css.map": "/dictation/static/css/main.6ece6af2.css.map",
-    "main.753ba477.js.map": "/dictation/static/js/main.753ba477.js.map",
+    "main.c7880dcf.js.map": "/dictation/static/js/main.c7880dcf.js.map",
     "787.93bb1759.chunk.js.map": "/dictation/static/js/787.93bb1759.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6ece6af2.css",
-    "static/js/main.753ba477.js"
+    "static/js/main.c7880dcf.js"
   ]
 }
