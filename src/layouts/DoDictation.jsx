@@ -141,8 +141,8 @@ const DoDictation = ({ time }) => {
   }
 
   return (
-    //isOpenFile is needed because if not, it will try to read the content of the dictation file, which when
-    //isOpeningFile is true, is null.
+    // isOpenFile is needed because if not, it will try to read the content of the dictation file, which when
+    // isOpeningFile is true, is null.
     dictation !== null
       ? (
         <>
