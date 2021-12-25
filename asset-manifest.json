@@ -1,23 +1,16 @@
 {
   "files": {
-    "main.css": "/dictation/static/css/main.4ce34cab.chunk.css",
-    "main.js": "/dictation/static/js/main.9057820d.chunk.js",
-    "main.js.map": "/dictation/static/js/main.9057820d.chunk.js.map",
-    "runtime-main.js": "/dictation/static/js/runtime-main.929e7809.js",
-    "runtime-main.js.map": "/dictation/static/js/runtime-main.929e7809.js.map",
-    "static/js/2.7a60a379.chunk.js": "/dictation/static/js/2.7a60a379.chunk.js",
-    "static/js/2.7a60a379.chunk.js.map": "/dictation/static/js/2.7a60a379.chunk.js.map",
-    "static/js/3.f787e994.chunk.js": "/dictation/static/js/3.f787e994.chunk.js",
-    "static/js/3.f787e994.chunk.js.map": "/dictation/static/js/3.f787e994.chunk.js.map",
+    "main.css": "/dictation/static/css/main.6ece6af2.css",
+    "main.js": "/dictation/static/js/main.753ba477.js",
+    "static/js/787.93bb1759.chunk.js": "/dictation/static/js/787.93bb1759.chunk.js",
     "index.html": "/dictation/index.html",
-    "static/css/main.4ce34cab.chunk.css.map": "/dictation/static/css/main.4ce34cab.chunk.css.map",
-    "static/js/2.7a60a379.chunk.js.LICENSE.txt": "/dictation/static/js/2.7a60a379.chunk.js.LICENSE.txt",
-    "static/media/speaker_icon.32742772.svg": "/dictation/static/media/speaker_icon.32742772.svg"
+    "static/media/speaker_icon.svg": "/dictation/static/media/speaker_icon.32742772767c1f9c1d0583967c1debd3.svg",
+    "main.6ece6af2.css.map": "/dictation/static/css/main.6ece6af2.css.map",
+    "main.753ba477.js.map": "/dictation/static/js/main.753ba477.js.map",
+    "787.93bb1759.chunk.js.map": "/dictation/static/js/787.93bb1759.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.929e7809.js",
-    "static/js/2.7a60a379.chunk.js",
-    "static/css/main.4ce34cab.chunk.css",
-    "static/js/main.9057820d.chunk.js"
+    "static/css/main.6ece6af2.css",
+    "static/js/main.753ba477.js"
   ]
 }
