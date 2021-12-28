@@ -7,12 +7,17 @@ import styles from './CreateDictation.module.scss'
 import { downloadAsFile } from '../utils/downloadAsFile'
 import RadioRow from '../components/RadioRow'
 import FileInput from '../components/FileInput'
+import AlertBox from '../components/AlertBox'
+
+const TIME_MODE_DEFAULT = 'default'
+const TIME_MODE_CUSTOM = 'setYourOwn'
 
 const CreateDictation = () => {
   const [words, setWords] = React.useState([''])
-  const [title, setTitle] = React.useState(null)
-  const [radioValue, setRadioValue] = React.useState(null)
+  const [title, setTitle] = React.useState('')
+  const [timeMode, setTimeMode] = React.useState(TIME_MODE_DEFAULT)
   const [time, setTime] = React.useState(null)
+  const [isAlert, setIsAlert] = React.useState(false)
 
   const onChange = (value, i) => {
     const newArray = [...words]
@@ -45,11 +50,7 @@ const CreateDictation = () => {
   }
 
   const radioBtnOnClick = (value) => {
-    setRadioValue(value)
-
-    if (value === 'default') {
-      setTime(null)
-    }
+    setTimeMode(value)
   }
 
   const timeInputOnChange = (value) => {
@@ -71,9 +72,9 @@ const CreateDictation = () => {
       setTitle(dictation.title)
       setWords(dictation.words)
       if (dictation.time === null) {
-        setRadioValue('default')
+        setTimeMode(TIME_MODE_DEFAULT)
       } else {
-        setRadioValue('setYourOwn')
+        setTimeMode(TIME_MODE_CUSTOM)
         setTime(dictation.time)
       }
     }
@@ -82,13 +83,18 @@ const CreateDictation = () => {
 
   const clearDictation = () => {
     setTime('')
-    setRadioValue('default')
+    setTimeMode(TIME_MODE_DEFAULT)
     setTitle('')
     setWords([''])
   }
 
   return (
     <div className={styles.wrapper}>
+      {isAlert
+        ? <AlertBox title={null} btnOnClick={() => setIsAlert(false)}/>
+        : null
+      }
+
       <div className={appStyles.submitRow}>
         <FileInput onChange={loadDictation} color="primary" label="Load Dictation..."/>
         <Button color="danger" onClick={clearDictation}>Clear Dictation</Button>
@@ -125,22 +131,22 @@ const CreateDictation = () => {
             i={0}
             label="Use default time"
             onClick={radioBtnOnClick}
-            value="default"
-            isChecked={radioValue === 'default'}
+            value={TIME_MODE_DEFAULT}
+            isChecked={timeMode === TIME_MODE_DEFAULT}
           />
         </div>
         <div className={styles.radioRowWrapper}>
           <RadioRow
             i={1}
             label="Custom(seconds):"
-            value="setYourOwn"
+            value={TIME_MODE_CUSTOM}
             onClick={radioBtnOnClick}
-            isChecked={radioValue === 'setYourOwn'}
+            isChecked={timeMode === TIME_MODE_CUSTOM}
           />
           <Input
             value={time}
             onChange={(e) => {timeInputOnChange(e.target.value)}}
-            onClick={() => radioBtnOnClick('setYourOwn')}
+            onClick={() => radioBtnOnClick(TIME_MODE_CUSTOM)}
           />
         </div>
       </div>

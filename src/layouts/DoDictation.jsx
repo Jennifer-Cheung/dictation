@@ -148,7 +148,7 @@ const DoDictation = ({ time }) => {
         <>
           {isAlert
             ? (
-              <AlertBox title={dictation.title} btnOnClick={alertBoxBtnOnClick}/>
+              <AlertBox title={dictation.title} btnOnClick={alertBoxBtnOnClick} situation={'doDictation'}/>
             )
             : null}
 
